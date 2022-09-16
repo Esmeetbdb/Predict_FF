@@ -57,7 +57,7 @@ def train_input(args):
 def predict_FF(args):
     import model_input as mi
     import predict_ff as pf
-    df = mi.predict_input(frac_file_dir, good_bin_csv, read_length_csv, test_input = True)
+    df = mi.predict_input(args.folder_path, args.good_bins, args.read_lengths, test_input = True)
     pf.predict_FF(df)
 
 def main():
@@ -104,6 +104,9 @@ def main():
 
     parser_predict = subparsers.add_parser("predict", help = "model help")
     parser_predict.add_argument("model_path", type=str, help = "path to model file made in train_model step")
+    parser_predict.add_argument("folder_path", type=str, help = "string to the output folder of the count reads step")
+    parser_predict.add_argument("good_bins", type=str, help = "txt file name that stores the good bins")
+    parser_predict.add_argument("read_lengths", type=str, help = "file name that stores read lengths used in model training")
     parser_predict.set_defaults(func=predict_FF)
 
     args = parser.parse_args(sys.argv[1:])
