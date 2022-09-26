@@ -18,8 +18,8 @@ def get_contigs(bam_file, min_contig_size=1000000):
 def read_ok(read, min_mapping_quality):
     ''' Check if the read has a high enough quality and if botht he read and it's mate are mapped.'''
 
-    if read.is_read1 and not read.mate_is_unmapped and not read.is_unmapped:
-        if read.mapping_quality > min_mapping_quality:
+    if read.is_read1 and not read.mate_is_unmapped and not read.is_unmapped and not read.is_duplicate:
+        if read.mapping_quality > min_mapping_quality and ( (read.is_reverse and not read.mate_is_reverse) or (not read.is_reverse and read.mate_is_reverse) ):
             return True
 
 def extract_read_length(bam_file,
