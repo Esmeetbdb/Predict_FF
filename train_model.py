@@ -4,7 +4,7 @@ import sklearn
 import pandas as pd
 import numpy as np
 import pickle
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from scipy.stats import sem
 
 from sklearn.model_selection import train_test_split
