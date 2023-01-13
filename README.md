@@ -10,7 +10,7 @@ python __main__.py frac_reads bam_file samplesheet output_folder [--optional arg
 ```
 
 Optional parameters are:
-Optional arhument | Function | Default
+Optional argument | Function | Default
 ---|---|---
 --bin_size x | Change the size of the chromosome bins | 10000
 --min_qual | Minimum mapping quality for a read to be included in further analysis | 10
